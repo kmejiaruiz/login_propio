@@ -150,8 +150,8 @@ $consultar = "SELECT*FROM usuarios where usuario = '$usuario' and password = '$p
 $resultado = mysqli_query($conexion, $consultar);
 
 $filas = mysqli_num_rows($resultado);
-// El siguiente codigo ubicado abajo usa una condicion para proteger la pagina de validar.php, esto para que no pueda ser vulnerada
-// la seguridad de esta.
+// Condicional IF de abajo ubicado para ser redirigido a index.html en caso de no haber registrado o introducido un nombre de usuario.
+// Probablemente esto cambie en futuros cambios en este codigo de php.
 $sesion = $_SESSION['usuario'];
 if ($sesion == null || $sesion == "") {
     header("location:../index.html");
@@ -169,6 +169,7 @@ if ($filas) {
             </div>
         </div>
     </div>
+<!-- Script para redirigir al usuario a la pagina de home.php luego de n segundos en caso de que se haya introducido un usuario correcto o existente en la base de datos -->
 
     <script>
         "use strict";
@@ -201,7 +202,7 @@ else {
         </div>
     </div>
 </div>
-
+<!-- Script para redirigir al usuario a la pagina de index.html luego de n segundos en caso de que se haya introducido un usuario incorrecto o inexistente en la base de datos -->
 <script>
     "use strict";
     let cuenta_atras = 2;
@@ -223,7 +224,7 @@ else {
 
 
 
-
+// Script de abajo obsoleto (reemplazado por la funcion reloj)
 
     // let time = setTimeout(function () {
     //     window.location = '../index.html'
