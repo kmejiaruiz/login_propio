@@ -1,0 +1,99 @@
+@media screen and (max-width: 800px) {
+    .container-l {
+        display: none !important;
+    }
+
+    .main {
+        flex-direction: column;
+        height: 100%;
+    }
+
+    .container-r {
+        display: flex;
+        align-content: center;
+        justify-content: center;
+        height: 100%;
+        background-color: rgb(14, 14, 14) !important;
+
+    }
+
+    .boton-end {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+    }
+
+    .boton-end button {
+        width: 100%;
+    }
+
+    .line {
+        visibility: visible;
+        display: flex !important;
+
+    }
+}
+
+@media screen and (max-width: 350px) {
+    .container-r {
+        background-color: rgb(24, 24, 24) !important;
+    }
+
+    .section-form {
+        padding: 15px;
+    }
+
+    .botones-login {
+        flex-direction: column !important;
+        text-align: center;
+
+    }
+
+    .botones-login button {
+        margin-left: 30px !important;
+        width: 14em;
+    }
+
+    .line {
+        visibility: hidden;
+        display: none !important;
+    }
+
+
+}
+
+@media screen and (max-width: 332px) {
+    .botones-login {
+        display: flex !important;
+        flex-direction: column !important;
+        align-items: center;
+    }
+
+    .botones-login button {
+        margin-left: 15px !important;
+
+    }
+
+}
+
+@media screen and (max-width: 310px) {
+    body {
+        background-color: #000 !important;
+    }
+
+    .boton_error {
+        display: flex !important;
+    }
+
+    .errorpx {
+        display: block !important;
+        margin-top: 70% !important;
+       
+
+    }
+
+    .main {
+        display: none;
+    }
+}

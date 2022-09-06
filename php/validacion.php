@@ -144,7 +144,7 @@ session_start();
 
 $_SESSION['usuario'] = $usuario;
 
-$conexion = mysqli_connect('localhost', 'root', '', 'users');
+$conexion = mysqli_connect('localhost:3310', 'root', '', 'users');
 
 $consultar = "SELECT*FROM usuarios where usuario = '$usuario' and password = '$pass'";
 $resultado = mysqli_query($conexion, $consultar);
