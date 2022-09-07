@@ -31,7 +31,12 @@
     .line {
         visibility: visible;
         display: flex !important;
-
+    }
+    .line .line-l{
+        width: 150px !important;
+    }
+    .line .line-r{
+        width: 150px !important;
     }
 }
 
@@ -47,12 +52,15 @@
     .botones-login {
         flex-direction: column !important;
         text-align: center;
+        justify-content: center;
+        align-items: center;
 
     }
 
     .botones-login button {
-        margin-left: 30px !important;
+        /* margin-left: 30px !important; */
         width: 14em;
+        /* display: flex !important; */
     }
 
     .line {
@@ -68,6 +76,7 @@
         display: flex !important;
         flex-direction: column !important;
         align-items: center;
+        justify-content: center;
     }
 
     .botones-login button {
