@@ -82,13 +82,60 @@
 $conexion = mysqli_connect("localhost:3310", "root", "", "users");
 
 if (isset($_POST['register'])) {
-    if (strlen($_POST['usu-register']) >= 1 && strlen($_POST['pass-register']) >=1 ) {
+    if (strlen($_POST['email-register']) >= 1 && 
+        strlen($_POST['usu-register']) >= 1 &&
+        strlen($_POST['pass-register'] >= 1)
+        ) {
+        $email = trim($_POST['email-register']);
         $usuario = trim($_POST['usu-register']);
         $pass = trim($_POST['pass-register']);
         
-        $consultar = "INSERT INTO usuarios(usuario, password) VALUES ('$usuario','$pass')";
+        $consultar = "INSERT INTO usuarios(email, usuario, password) VALUES ('$email', '$usuario','$pass')";
+            //Evita el introducir un usuario repetido
+
+
+        $verificar = mysqli_query($conexion, "Select * from usuarios where email = '$email'");
+        $validar = mysqli_query($conexion, "Select * from usuarios where usuario = '$usuario'");
+
+        if (mysqli_num_rows($validar) > 0 || mysqli_num_rows($verificar) > 0) {
+            ?>
+            <div class="container">
+                <div class="error">
+                    <div class="error_text"><strong>Este usuario o correo ya esta registrado</strong>, se redirigira a la pagina de inicio en
+                        <span id="reloj"></span>
+                    </div>
+                </div>
+            </div>
+            <script>
+                "use strict";
+
+                let tiempo = 2;
+
+                function clock() {
+                    document.getElementById("reloj").innerHTML = tiempo;
+
+                    if (tiempo <= 0 || tiempo === 0) {
+                        window.location = '../index.html';
+                    } else {
+                        tiempo -= 1;
+                        setTimeout(clock, 1e3);
+                    }
+                }
+                clock();
+                </script>
+                <?php
+            die();
+        }
+
+
+
+
+
+
+
         $resultado = mysqli_query($conexion, $consultar);
         if ($resultado) {
+            
             ?>
             <div class="container-h">
                 <div class="success">
@@ -163,7 +210,7 @@ if (isset($_POST['register'])) {
 
         <div class="container">
             <div class="error">
-                <div class="error_text">Algo ha salido mal, se redirigira a la pagina de inicio en
+                <div class="error_text">Es de caracter obligatorio llenar todos los campos, se redirigira a la pagina de inicio en
                     <span id="reloj"></span>
                 </div>
             </div>

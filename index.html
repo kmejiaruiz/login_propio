@@ -20,6 +20,10 @@
 <body>
 
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,wght@8..144,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,300;1,200&family=Roboto+Flex:opsz,wght@8..144,200&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Comfortaa&family=Source+Sans+Pro:wght@300;400&display=swap');
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -66,29 +70,33 @@
         }
     </style>
     <!-- Alerta de 310px -->
-    <div id="ocultar" style="display: flex; flex-direction: column; ">
-        <div class="alert alert-danger errorpx " role="alert" style="display: none;">
-            <div style="display: flex; justify-content: center;">
-                <i class="fa-solid fa-circle-exclamation"></i>
+    <div id="close" style="height: 100vh; display: none; align-items: center !important;">
+        <div id="ocultar" style="display: flex; flex-direction: column !important; ">
+            <div class="alert alert-danger errorpx " role="alert" style="display: none;">
+                <div style="display: flex; justify-content: center;">
+                    <i class="fa-solid fa-circle-exclamation"></i>
+                </div>
+                <div style="display: flex; justify-content: center;">
+                    <strong>
+                        Advertencia!
+                    </strong>
+                </div>
+                Cabe la posibilidad de que, se presenten algunos margenes mal distribuidos, estamos trabajando para
+                resolver
+                estos problemas lo mas pronto posible, le pedimos disculpas por las molestias ocasionadas. Gracias
             </div>
-            <div style="display: flex; justify-content: center;">
-                <strong>
-                    Advertencia!
-                </strong>
-            </div>
-            Cabe la posibilidad de que, se presenten algunos margenes mal distribuidos, estamos trabajando para resolver estos problemas lo mas pronto posible, le pedimos disculpas por las molestias ocasionadas. Gracias
-        </div>
-        <div class="boton_error" style="display: none; justify-content: center; align-items: center;">
-            <button type="button" onclick="mostrar()" class="btn btn-danger w-auto">
+            <div class="boton_error" style="display: none; justify-content: center; align-items: center;">
+                <button type="button" onclick="mostrar()" class="btn btn-danger w-auto">
 
-                <div class="spinner-border" id="spinner" role="status"
-                    style="width: 20px; height: 20px; display: none;">
-                    <span class="visually-hidden">Loading...</span>
-                </div>
-                <div id="texto-boton-error">
-                    Aceptar y continuar.
-                </div>
-            </button>
+                    <div class="spinner-border" id="spinner" role="status"
+                        style="width: 20px; height: 20px; display: none;">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <div id="texto-boton-error">
+                        Aceptar y continuar.
+                    </div>
+                </button>
+            </div>
         </div>
     </div>
     <!-- Fin de alerta 310px -->
@@ -102,19 +110,19 @@
             </div>
 
             <div class="container-r">
-                <div class="section-form" style="padding: 10px;">
+                <div class="section-form" style="padding: 20px;">
                     <i class="fa-regular fa-user fa-2x"></i>
                     <h1 class="mb-3">Iniciar Sesi&oacute;n</h1>
                     <div class="mb-3">
                         <form action="./php/validacion.php" method="post">
                             <p class="mt-2 w-auto">Por favor, no comparta sus credenciales con nadie.</p>
-                            <label for="username" class="form-label">Correo Electronico</label>
+                            <label for="username" class="form-label">Nombre de usuario</label>
                             <div class="input-group w-100 mb-3">
                                 <span class="input-group-text">
                                     <i class="fa-regular fa-user"></i>
                                 </span>
                                 <input type="text" class="form-control inputs" id="username"
-                                    placeholder="Ingrese su correo electronico" name="usuario" required>
+                                    placeholder="Ingrese su nombre de usuario" name="usuario" required>
                             </div>
 
                             <label for="pass" class="form-label">Contrasena</label>
@@ -125,9 +133,9 @@
                                 <input type="password" class="form-control inputs" id="pass"
                                     placeholder="Ingrese su contrasena" name="password" required>
                             </div>
-                            <div class="d-flex botones-login">
+                            <div class="d-flex botones-login" style="gap: 20px;">
 
-                                <button type="submit" class="btn btn-primary me-3">
+                                <button type="submit" class="btn btn-primary">
                                     <i class="fa-solid fa-arrow-right-to-bracket"></i>
                                     Acceder
                                 </button>
@@ -160,7 +168,8 @@
                             <p>¿No tiene cuenta?</p>
 
                             <button type="button" class="foot-boton btn btn-outline-primary"
-                                style="border-radius: 20px; width:100% ;" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                style="border-radius: 20px; width:100% ;" data-bs-toggle="modal"
+                                data-bs-target="#exampleModal">
                                 <i class="fa-solid fa-user-plus fa-sm"></i>
                                 Cree una
                             </button>
@@ -180,6 +189,16 @@
                             </div>
                             <div class="modal-body">
                                 <form action="./php/registro.php" method="post" class="w-auto">
+                                    <!-- email -->
+                                    <label for="email-register" class="form-label">Correo electr&oacute;nico</label>
+                                    <div class="input-group w-auto mb-3">
+                                        <span class="input-group-text">
+                                            <i class="fa-regular fa-envelope"></i>
+                                        </span>
+                                        <input type="email" class="form-control inputs" id="email-register"
+                                            placeholder="Ingrese su correo electronico" name="email-register">
+                                    </div>
+                                    <!-- username -->
                                     <label for="username-register" class="form-label">Nombre de usuario</label>
                                     <div class="input-group w-auto mb-3">
                                         <span class="input-group-text">
@@ -189,7 +208,7 @@
                                             placeholder="Ingrese su nombre de usuario con el que se indentificara"
                                             name="usu-register">
                                     </div>
-
+                                    <!-- pass -->
                                     <label for="password-register" class="form-label">Contrase&ntilde;a</label>
                                     <div class="input-group w-auto mb-3">
                                         <span class="input-group-text">
@@ -200,8 +219,9 @@
                                     </div>
                                     <div class="d-flex" style="justify-content: flex-end; gap: 10px;">
                                         <button type="button" class="btn btn-outline-danger"
-                                            data-bs-dismiss="modal">Close</button>
-                                        <button type="submit" name="register" class="btn btn-outline-success">Save changes</button>
+                                            data-bs-dismiss="modal">Regresar</button>
+                                        <button type="submit" name="register"
+                                            class="btn btn-outline-success">Registrarse</button>
                                     </div>
                                 </form>
                             </div>
@@ -240,12 +260,7 @@
 
 
     <script>
-
-
         "use strict";
-
-
-
         function mostrar() {
 
             document.getElementById("texto-boton-error").style.display = "none";
@@ -253,10 +268,12 @@
 
 
             var timer = setTimeout(function () {
+                document.getElementById("close").style.display = "none";
+                // document de abajo para desaparecer el div close para que no interfiera en la interfaz de inicio
+                document.getElementById("close").style.height = 0;
                 document.getElementById("ocultar").style.display = "none";
                 document.getElementById("mostrar").style.display = "block";
-                document.getElementById("mostrar").style.animationDelay = "0.5s";
-            }, 2500);
+            }, 3000);
         }
 
     </script>

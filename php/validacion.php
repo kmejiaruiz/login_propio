@@ -165,7 +165,7 @@ if ($filas) {
     <div class="container-h">
         <div class="success">
             <div class="success_text">
-                &Eacute;xito en la solicitud, espere <span id="counter"></span> segundos porfavor.
+                Le damos la bienvenida, espere <span id="counter"></span> segundos porfavor.
             </div>
         </div>
     </div>
