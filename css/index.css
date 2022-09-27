@@ -37,13 +37,11 @@
         display: flex !important;
     }
 
-    .line .line-l {
+    .line .line-l, .line-r {
         width: 150px !important;
     }
 
-    .line .line-r {
-        width: 150px !important;
-    }
+
 }
 
 @media screen and (max-width: 350px) {
